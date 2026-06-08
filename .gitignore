@@ -1,0 +1,26 @@
+# SSH Keys
+*.pem
+*.key
+
+# Terraform state — contains sensitive data, never commit
+terraform/.terraform/
+terraform/.terraform.lock.hcl
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+terraform/terraform.tfvars
+
+# AWS credentials
+.env
+.aws/
+
+# Ansible generated
+*.retry
+ansible/inventory/hosts.ini
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# macOS
+.DS_Store
