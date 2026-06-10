@@ -1,0 +1,26 @@
+
+[Unit]
+Description=Minecraft Server (Docker)
+Requires=docker.service
+After=docker.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory={{ minecraft_data_dir }}
+
+ExecStart=/usr/bin/docker compose up
+ExecStop=/usr/bin/docker compose exec -T minecraft rcon-cli stop
+ExecStopPost=/usr/bin/docker compose down
+
+Restart=on-failure
+RestartSec=10
+TimeoutStopSec=90
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=minecraft
+
+[Install]
+WantedBy=multi-user.target
