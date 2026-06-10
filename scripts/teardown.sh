@@ -10,7 +10,7 @@ if [ "$confirm" != "yes" ]; then
   exit 1
 fi
 
-cd terraform
+cd ../terraform
 terraform destroy -auto-approve
 
 echo ""
