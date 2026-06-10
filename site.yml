@@ -1,0 +1,13 @@
+- name: Stage 1 — Configure EC2 Instance
+  hosts: minecraft
+  become: true
+  gather_facts: true
+  roles:
+    - configure
+
+- name: Stage 2 — Deploy Minecraft Docker Container
+  hosts: minecraft
+  become: true
+  gather_facts: false
+  roles:
+    - docker
