@@ -1,0 +1,10 @@
+---
+minecraft_data_dir:      "/opt/minecraft"
+minecraft_port:          25565
+minecraft_version:       "LATEST"
+minecraft_image_tag:     "latest"
+minecraft_memory:        "2000M"
+minecraft_difficulty:    "easy"
+minecraft_max_players:   "20"
+minecraft_motd:          "Minecraft EC2 Ansible"
+minecraft_online_mode:   "true"
