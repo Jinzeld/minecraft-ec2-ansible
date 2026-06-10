@@ -1,4 +1,4 @@
-# Minecraft Server on AWS using Terraform and Ansible 
+# Minecraft Server on EC2 using Terraform and Ansible 
 
 Automated deployment of a Minecraft Java Edition server on AWS EC2 using **Terraform** (infrastructure) and **Ansible** (configuration + deployment). No AWS Console interaction required after initial credential setup.
 
@@ -236,13 +236,28 @@ nmap -sV -Pn -p T:25565 <PUBLIC_IP>
 
 ---
 
-## Teardown
+## Scripts
+
+For running after everything is setup correctly:
+
+```bash
+bash scripts/1.setup.sh
+```
+> Verifies for requirements needed for deployment
+
+Deloy after everything checks out:
+
+```bash
+bash scrips/2.deploy.sh
+```
+> Deploys Terraform and Ansible
 
 When done, destroy all AWS resources to avoid charges:
 
 ```bash
-bash teardown.sh
+bash scripts/3.teardown.sh
 ```
+> Terminates current instance and cleans up inventory
 
 ---
 
