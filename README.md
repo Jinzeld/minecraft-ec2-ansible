@@ -6,7 +6,7 @@ Automated deployment of a Minecraft Java Edition server on AWS EC2 using **Terra
 
 ## Background
 
-### What are we doing?
+### What is this project about?
 
 This project fully automates the provisioning, configuration, and deployment of a Minecraft server on AWS. Two commands spin up a fresh EC2 instance, install Docker, deploy the server in a container, and configure it to auto-start on reboot — all without touching the AWS Management Console.
 
