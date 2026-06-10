@@ -1,4 +1,4 @@
-# Minecraft Server on AWS — Infrastructure as Code
+# Minecraft Server on AWS using Terraform and Ansible 
 
 Automated deployment of a Minecraft Java Edition server on AWS EC2 using **Terraform** (infrastructure) and **Ansible** (configuration + deployment). No AWS Console interaction required after initial credential setup.
 
@@ -159,8 +159,8 @@ minecraft-aws-iac/
 ### Step 1 — Clone the repo
 
 ```bash
-git clone https://github.com/<your-username>/minecraft-aws-iac.git
-cd minecraft-aws-iac
+git clone https://github.com/Jinzeld/minecraft-ec2-ansible.git
+cd minecraft-ec2-ansible
 ```
 
 ### Step 2 — Install dependencies
