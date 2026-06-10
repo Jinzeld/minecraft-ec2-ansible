@@ -1,0 +1,29 @@
+
+services:
+  minecraft:
+    image: itzg/minecraft-server:{{ minecraft_image_tag }}
+    container_name: minecraft
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
+    ports:
+      - "{{ minecraft_port }}:25565"
+    environment:
+      EULA: "TRUE"
+      VERSION: "{{ minecraft_version }}"
+      MEMORY: "{{ minecraft_memory }}"
+      DIFFICULTY: "{{ minecraft_difficulty }}"
+      MAX_PLAYERS: "{{ minecraft_max_players }}"
+      MOTD: "{{ minecraft_motd }}"
+      ONLINE_MODE: "{{ minecraft_online_mode }}"
+      ENABLE_RCON: "true"
+      RCON_PASSWORD: "minecraft"
+      RCON_PORT: "25575"
+    volumes:
+      - "{{ minecraft_data_dir }}/data:/data"
+    stop_grace_period: 60s
+    healthcheck:
+      test: mc-health
+      start_period: 1m
+      interval: 5s
+      retries: 20
