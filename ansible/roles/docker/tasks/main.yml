@@ -1,0 +1,31 @@
+
+- name: Pull Minecraft Docker image
+  community.docker.docker_image:
+    name: "itzg/minecraft-server"
+    tag: "{{ minecraft_image_tag }}"
+    source: pull
+
+- name: Start Minecraft service
+  ansible.builtin.systemd:
+    name: minecraft
+    state: started
+    enabled: true
+
+- name: Wait for port 25565 to open
+  ansible.builtin.wait_for:
+    port: "{{ minecraft_port }}"
+    host: "0.0.0.0"
+    delay: 30
+    timeout: 300
+
+- name: Confirm service is active
+  ansible.builtin.command: systemctl is-active minecraft
+  register: svc_status
+  changed_when: false
+
+- name: Print deployment summary
+  ansible.builtin.debug:
+    msg:
+      - "   Minecraft server deployed!"
+      - "   Service : {{ svc_status.stdout }}"
+      - "   Verify  : nmap -sV -Pn -p T:{{ minecraft_port }} <public_ip>"
