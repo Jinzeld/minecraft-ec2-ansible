@@ -34,6 +34,7 @@ if [ ! -f ~/.ssh/minecraft-key ]; then
 fi
  
 # Install Ansible collections
+cd ..
 ansible-galaxy collection install -r ansible/requirements.yml
  
 # Initialize Terraform

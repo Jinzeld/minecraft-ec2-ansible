@@ -26,7 +26,7 @@ fi
  
 # Stage 1 - Terraform
 echo "Provisioning AWS infrastructure..."
-cd terraform
+cd ../terraform
 terraform apply -auto-approve
 cd ..
  
